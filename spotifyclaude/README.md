@@ -95,12 +95,23 @@ cd Spotify-Model-Context-Protocol-Tutorial-Claude-Builders-Club-UCC/spotifyclaud
 
 Once you've built your tools (with a little help from Claude), you're ready to plug the server into Claude Desktop and try it for real.
 
-Open your Claude Desktop config:
+Open Claude Desktop and go to **Settings** (bottom left of the sidebar):
 
-- **macOS:** `~/Library/Application Support/Claude/claude_desktop_config.json`
-- **Windows:** `%APPDATA%\Claude\claude_desktop_config.json`
+![Claude Desktop Settings](screenshots/1-settings.png)
 
-Add the following, replacing the path with the location you cloned the repo:
+Navigate to **Developer** → **Edit Config**. You'll also be able to see your server listed here once it's connected:
+
+![Developer Settings and Edit Config](screenshots/2-developer.png)
+
+This opens the `claude_desktop_config.json` file. On **macOS** you'll find it at:
+
+`~/Library/Application Support/Claude/claude_desktop_config.json`
+
+![Config file in Finder](screenshots/3-finder.png)
+
+Add the following to your config, replacing the `--directory` path with the location of your `spotifyclaude` folder:
+
+![Config file open in editor](screenshots/4-config.png)
 
 ```json
 {
@@ -122,6 +133,10 @@ Add the following, replacing the path with the location you cloned the repo:
   }
 }
 ```
+
+To get the correct path, right-click the `spotifyclaude` folder in PyCharm and select **Copy Path/Reference...**:
+
+![Copy path in PyCharm](screenshots/5-copy-path.png)
 
 Restart Claude Desktop.
 
