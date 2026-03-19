@@ -6,6 +6,55 @@ It exposes Spotify actions as tools Claude can call directly — search for trac
 
 ---
 
+## Try It Yourself First
+
+Before diving into this repo, we recommend scaffolding a blank MCP server yourself. It only takes a minute and gives you a feel for how the project is structured.
+
+**Step 1 — Install uv** (a fast Python package manager):
+
+```bash
+pip install uv
+```
+
+**Step 2 — Install and run the MCP server creator** ([docs here](https://github.com/modelcontextprotocol/create-python-server?tab=readme-ov-file#using-pip)):
+
+```bash
+pip install create-mcp-server
+create-mcp-server
+```
+
+It will walk you through naming your project. When it's done, you'll have a blank server with this structure:
+
+```
+spotifyclaude/
+├── README.md
+├── pyproject.toml
+├── uv.lock
+├── .python-version
+└── src/
+    └── spotifyclaude/
+        ├── __init__.py
+        └── server.py
+```
+
+All your logic lives in `server.py`. The rest is configuration.
+
+---
+
+## Now Build the Spotify Server
+
+Once you have your blank server, try building the Spotify integration yourself before looking at the code. Here are the five tools you need to implement — use these as your spec:
+
+- **`authorize`** — Run the Spotify OAuth flow in the browser, exchange the code for an access token, and save it to disk for reuse.
+- **`get_current_song`** — Call the Spotify API to get the currently playing track and return the name, artist, album, and URL.
+- **`search_track`** — Search the Spotify catalogue by query string and return the top results with their track URIs.
+- **`create_playlist`** — Create a new private playlist on the user's account and return its URL.
+- **`add_tracks`** — Take a playlist ID and a list of track URIs and add them to the playlist.
+
+Stuck or want to see how we did it? The full implementation is below.
+
+---
+
 ## Tools
 
 | Tool | Description |
