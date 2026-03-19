@@ -140,6 +140,15 @@ To get the correct path, right-click the `spotifyclaude` folder in PyCharm and s
 
 Restart Claude Desktop.
 
+Before authorizing, you can verify the server runs correctly by opening your terminal, navigating to your `spotifyclaude` folder, and running:
+
+```bash
+cd /path/to/your/spotifyclaude
+uv run spotifyclaude
+```
+
+![Running the server in terminal](screenshots/6-terminal.png)
+
 ### 4. Authorize
 
 In Claude, ask it to run the `authorize` tool. A browser window will open — log in with your Spotify account. Once you see "Success!", you're connected.
