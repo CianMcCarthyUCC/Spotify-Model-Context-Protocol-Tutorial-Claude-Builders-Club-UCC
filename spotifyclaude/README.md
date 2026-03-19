@@ -157,6 +157,8 @@ Your server will now appear under **Connectors** in the chat. You can talk to it
 
 ![spotifyclaude connector visible in chat](screenshots/8-connector.png)
 
+On first use, Claude will ask you to approve the connection and log in to your Spotify account to complete the OAuth flow. This only happens once — after that your token is cached and you're fully set up.
+
 ---
 
 ## Usage
