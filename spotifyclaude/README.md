@@ -93,6 +93,8 @@ cd Spotify-Model-Context-Protocol-Tutorial-Claude-Builders-Club-UCC/spotifyclaud
 
 ### 3. Connect to Claude Desktop
 
+Once you've built your tools (with a little help from Claude), you're ready to plug the server into Claude Desktop and try it for real.
+
 Open your Claude Desktop config:
 
 - **macOS:** `~/Library/Application Support/Claude/claude_desktop_config.json`
