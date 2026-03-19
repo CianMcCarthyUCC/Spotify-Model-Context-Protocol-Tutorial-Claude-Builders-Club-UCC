@@ -136,7 +136,7 @@ Once you've built your tools (with a little help from Claude), you're ready to p
 }
 ```
 
-**Verify the server starts** by running it manually in your terminal before restarting Claude Desktop:
+**Verify the server starts** by running it manually in your terminal first. It's best practice to fully close Claude Desktop, run the server, and then reopen Claude Desktop — this ensures Claude picks up the new connection cleanly:
 
 ```bash
 cd /path/to/your/spotifyclaude
