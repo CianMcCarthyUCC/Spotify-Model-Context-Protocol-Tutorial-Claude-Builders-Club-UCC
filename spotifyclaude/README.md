@@ -38,7 +38,7 @@ cd Spotify-Model-Context-Protocol-Tutorial-Claude-Builders-Club-UCC/spotifyclaud
 ### 2. Create a Spotify app
 
 1. Go to the [Spotify Developer Dashboard](https://developer.spotify.com/dashboard) and create an app.
-2. Add `http://localhost:8000/callback` as a **Redirect URI** in your app settings.
+2. Add `http://127.0.0.1:8000/callback` as a **Redirect URI** in your app settings.
 3. Copy your **Client ID** and **Client Secret**.
 4. Add your Spotify account email under **User Management** (required while the app is in Development Mode).
 
