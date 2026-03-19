@@ -51,11 +51,7 @@ Once you have your blank server, try building the Spotify integration yourself b
 - **`create_playlist`** — Create a new private playlist on the user's account and return its URL.
 - **`add_tracks`** — Take a playlist ID and a list of track URIs and add them to the playlist.
 
-Stuck or want to see how we did it? The full implementation is below.
-
----
-
-## Tools
+Stuck or want to see how we did it? The full implementation is in [`src/spotifyclaude/server.py`](spotifyclaude/src/spotifyclaude/server.py). Here's a summary of what each tool does:
 
 | Tool | Description |
 |---|---|
@@ -68,6 +64,8 @@ Stuck or want to see how we did it? The full implementation is below.
 ---
 
 ## Prerequisites
+
+Before running the server, make sure you have the following:
 
 - [uv](https://docs.astral.sh/uv/getting-started/installation/) — Python package manager
 - A [Spotify Developer](https://developer.spotify.com/dashboard) account with an app created
@@ -179,13 +177,6 @@ Use the [MCP Inspector](https://github.com/modelcontextprotocol/inspector) to te
 ```bash
 npx @modelcontextprotocol/inspector uv --directory /path/to/spotifyclaude run spotifyclaude
 ```
-
----
-
-## Notes on Spotify's API
-
-- This server uses `POST /me/playlists` and `POST /playlists/{id}/items` — updated endpoints required by Spotify's [February 2026 API changes](https://developer.spotify.com/documentation/web-api/tutorials/february-2026-migration-guide).
-- Apps in Development Mode support up to 25 users added via the Developer Dashboard.
 
 ---
 
