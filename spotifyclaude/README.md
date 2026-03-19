@@ -64,7 +64,7 @@ Add the following, replacing the path with the location you cloned the repo:
 {
   "mcpServers": {
     "spotifyclaude": {
-      "command": "uv",
+      "command": "/Library/Frameworks/Python.framework/Versions/3.12/bin/uv",
       "args": [
         "--directory",
         "/path/to/spotifyclaude",
@@ -73,7 +73,8 @@ Add the following, replacing the path with the location you cloned the repo:
       ],
       "env": {
         "SPOTIFY_CLIENT_ID": "your_client_id",
-        "SPOTIFY_CLIENT_SECRET": "your_client_secret"
+        "SPOTIFY_CLIENT_SECRET": "your_client_secret",
+        "SPOTIFY_REDIRECT_URI": "http://127.0.0.1:8000/callback"
       }
     }
   }
