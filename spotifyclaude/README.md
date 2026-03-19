@@ -1,111 +1,121 @@
-# spotifyclaude MCP server
+# Spotify MCP Server
 
-A mcp project for spotify
+A [Model Context Protocol](https://modelcontextprotocol.io) server that connects Claude to your Spotify account. Built for the **Claude Builders Club @ UCC**.
 
-## Components
+It exposes Spotify actions as tools Claude can call directly — search for tracks, see what's playing, create playlists, and add songs to them, all through conversation.
 
-### Resources
+---
 
-The server implements a simple note storage system with:
-- Custom note:// URI scheme for accessing individual notes
-- Each note resource has a name, description and text/plain mimetype
+## Tools
 
-### Prompts
+| Tool | Description |
+|---|---|
+| `authorize` | Connect your Spotify account via OAuth. Run this first. |
+| `get_current_song` | See what's currently playing. |
+| `search_track` | Search the Spotify catalogue by name or artist. Returns URIs for use with `add_tracks`. |
+| `create_playlist` | Create a new private playlist on your account. |
+| `add_tracks` | Add one or more tracks to a playlist by URI. |
 
-The server provides a single prompt:
-- summarize-notes: Creates summaries of all stored notes
-  - Optional "style" argument to control detail level (brief/detailed)
-  - Generates prompt combining all current notes with style preference
+---
 
-### Tools
+## Prerequisites
 
-The server implements one tool:
-- add-note: Adds a new note to the server
-  - Takes "name" and "content" as required string arguments
-  - Updates server state and notifies clients of resource changes
+- [uv](https://docs.astral.sh/uv/getting-started/installation/) — Python package manager
+- A [Spotify Developer](https://developer.spotify.com/dashboard) account with an app created
+- [Claude Desktop](https://claude.ai/download)
 
-## Configuration
+---
 
-[TODO: Add configuration details specific to your implementation]
+## Setup
 
-## Quickstart
+### 1. Clone the repo
 
-### Install
+```bash
+git clone https://github.com/CianMcCarthyUCC/Spotify-Model-Context-Protocol-Tutorial-Claude-Builders-Club-UCC.git
+cd Spotify-Model-Context-Protocol-Tutorial-Claude-Builders-Club-UCC/spotifyclaude
+```
 
-#### Claude Desktop
+### 2. Create a Spotify app
 
-On MacOS: `~/Library/Application\ Support/Claude/claude_desktop_config.json`
-On Windows: `%APPDATA%/Claude/claude_desktop_config.json`
+1. Go to the [Spotify Developer Dashboard](https://developer.spotify.com/dashboard) and create an app.
+2. Add `http://localhost:8000/callback` as a **Redirect URI** in your app settings.
+3. Copy your **Client ID** and **Client Secret**.
+4. Add your Spotify account email under **User Management** (required while the app is in Development Mode).
 
-<details>
-  <summary>Development/Unpublished Servers Configuration</summary>
-  ```
+### 3. Set your credentials
+
+Export your credentials as environment variables, or add them to your shell profile:
+
+```bash
+export SPOTIFY_CLIENT_ID="your_client_id"
+export SPOTIFY_CLIENT_SECRET="your_client_secret"
+```
+
+### 4. Connect to Claude Desktop
+
+Open your Claude Desktop config:
+
+- **macOS:** `~/Library/Application Support/Claude/claude_desktop_config.json`
+- **Windows:** `%APPDATA%\Claude\claude_desktop_config.json`
+
+Add the following, replacing the path with the location you cloned the repo:
+
+```json
+{
   "mcpServers": {
     "spotifyclaude": {
       "command": "uv",
       "args": [
         "--directory",
-        "/Users/cianmccarthy/PycharmProjects/spotify_mcp/spotifyclaude",
+        "/path/to/spotifyclaude",
         "run",
         "spotifyclaude"
-      ]
+      ],
+      "env": {
+        "SPOTIFY_CLIENT_ID": "your_client_id",
+        "SPOTIFY_CLIENT_SECRET": "your_client_secret"
+      }
     }
   }
-  ```
-</details>
-
-<details>
-  <summary>Published Servers Configuration</summary>
-  ```
-  "mcpServers": {
-    "spotifyclaude": {
-      "command": "uvx",
-      "args": [
-        "spotifyclaude"
-      ]
-    }
-  }
-  ```
-</details>
-
-## Development
-
-### Building and Publishing
-
-To prepare the package for distribution:
-
-1. Sync dependencies and update lockfile:
-```bash
-uv sync
+}
 ```
 
-2. Build package distributions:
+Restart Claude Desktop.
+
+### 5. Authorize
+
+In Claude, ask it to run the `authorize` tool. A browser window will open — log in with your Spotify account. Once you see "Success!", you're connected.
+
+---
+
+## Usage
+
+Once authorized, just talk to Claude:
+
+> *"What song is playing right now?"*
+> *"Search for Daft Punk — One More Time"*
+> *"Create a playlist called Saturday Morning Vibes"*
+> *"Add that track to my playlist"*
+
+---
+
+## Debugging
+
+Use the [MCP Inspector](https://github.com/modelcontextprotocol/inspector) to test tools without Claude Desktop:
+
 ```bash
-uv build
+npx @modelcontextprotocol/inspector uv --directory /path/to/spotifyclaude run spotifyclaude
 ```
 
-This will create source and wheel distributions in the `dist/` directory.
+---
 
-3. Publish to PyPI:
-```bash
-uv publish
-```
+## Notes on Spotify's API
 
-Note: You'll need to set PyPI credentials via environment variables or command flags:
-- Token: `--token` or `UV_PUBLISH_TOKEN`
-- Or username/password: `--username`/`UV_PUBLISH_USERNAME` and `--password`/`UV_PUBLISH_PASSWORD`
+- This server uses `POST /me/playlists` and `POST /playlists/{id}/items` — updated endpoints required by Spotify's [February 2026 API changes](https://developer.spotify.com/documentation/web-api/tutorials/february-2026-migration-guide).
+- Apps in Development Mode support up to 25 users added via the Developer Dashboard.
 
-### Debugging
+---
 
-Since MCP servers run over stdio, debugging can be challenging. For the best debugging
-experience, we strongly recommend using the [MCP Inspector](https://github.com/modelcontextprotocol/inspector).
+## License
 
-
-You can launch the MCP Inspector via [`npm`](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) with this command:
-
-```bash
-npx @modelcontextprotocol/inspector uv --directory /Users/cianmccarthy/PycharmProjects/spotify_mcp/spotifyclaude run spotifyclaude
-```
-
-
-Upon launching, the Inspector will display a URL that you can access in your browser to begin debugging.
+MIT
