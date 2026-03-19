@@ -95,21 +95,21 @@ cd Spotify-Model-Context-Protocol-Tutorial-Claude-Builders-Club-UCC/spotifyclaud
 
 Once you've built your tools (with a little help from Claude), you're ready to plug the server into Claude Desktop and try it for real.
 
-Open Claude Desktop and go to **Settings** (bottom left of the sidebar):
+**Open Settings** from the bottom left of the Claude Desktop sidebar:
 
 ![Claude Desktop Settings](screenshots/1-settings.png)
 
-Navigate to **Developer** → **Edit Config**. You'll also be able to see your server listed here once it's connected:
+**Go to Developer → Edit Config.** This is where your local MCP servers live once connected:
 
 ![Developer Settings and Edit Config](screenshots/2-developer.png)
 
-This opens the `claude_desktop_config.json` file. On **macOS** you'll find it at:
+**Find the config file.** Clicking Edit Config opens `claude_desktop_config.json`. On macOS it lives at:
 
 `~/Library/Application Support/Claude/claude_desktop_config.json`
 
 ![Config file in Finder](screenshots/3-finder.png)
 
-Add the following to your config, replacing the `--directory` path with the location of your `spotifyclaude` folder:
+**Edit the config.** Open the file and add the block below, replacing `your_client_id`, `your_client_secret`, and the `--directory` path with your own values:
 
 ![Config file open in editor](screenshots/4-config.png)
 
@@ -134,15 +134,11 @@ Add the following to your config, replacing the `--directory` path with the loca
 }
 ```
 
-To get the correct path, right-click the `spotifyclaude` folder in PyCharm and select **Copy Path/Reference...**:
+**Get the correct path** by right-clicking the `spotifyclaude` folder in PyCharm and selecting **Copy Path/Reference...**:
 
 ![Copy path in PyCharm](screenshots/5-copy-path.png)
 
-Restart Claude Desktop. If everything is configured correctly, you should see `spotifyclaude` with a **running** badge under Settings → Developer → Local MCP servers:
-
-![Server running in Claude Desktop](screenshots/7-running.png)
-
-Before authorizing, you can verify the server runs correctly by opening your terminal, navigating to your `spotifyclaude` folder, and running:
+**Verify the server starts** by running it manually in your terminal first:
 
 ```bash
 cd /path/to/your/spotifyclaude
@@ -151,11 +147,15 @@ uv run spotifyclaude
 
 ![Running the server in terminal](screenshots/6-terminal.png)
 
+**Restart Claude Desktop.** If everything is configured correctly, you'll see `spotifyclaude` with a **running** badge under Settings → Developer → Local MCP servers:
+
+![Server running in Claude Desktop](screenshots/7-running.png)
+
 ### 4. Authorize
 
 In Claude, ask it to run the `authorize` tool. A browser window will open — log in with your Spotify account. Once you see "Success!", you're connected.
 
-Now in the chat you should see your Local MCP Server available under **Connectors**. You can communicate with it through plain English, leveraging the Model Context Protocol and tool use:
+Your server will now appear under **Connectors** in the chat. You can talk to it in plain English — Claude handles the rest:
 
 ![spotifyclaude connector visible in chat](screenshots/8-connector.png)
 
