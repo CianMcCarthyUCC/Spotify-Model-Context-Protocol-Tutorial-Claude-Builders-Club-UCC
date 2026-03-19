@@ -75,7 +75,7 @@ Stuck or want to see how we did it? The full implementation is below.
 
 ---
 
-## Setup
+## Full Setup Guide
 
 ### 1. Clone the repo
 
