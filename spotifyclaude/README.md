@@ -163,12 +163,19 @@ On first use, Claude will ask you to approve the connection and log in to your S
 
 ## Usage
 
-Once authorized, just talk to Claude:
+Once authorized, just talk to Claude in plain English:
 
 > *"What song is playing right now?"*
 > *"Search for Daft Punk — One More Time"*
 > *"Create a playlist called Saturday Morning Vibes"*
 > *"Add that track to my playlist"*
+> *"Make me a playlist for a sunny uptown afternoon"*
+
+If everything is wired up correctly, you'll see Claude loading your tools, creating a playlist, searching for tracks, and adding them — all in one go:
+
+![Claude using spotifyclaude tools end to end](screenshots/9-working.png)
+
+If you see the tool calls firing like this, you're all set.
 
 ---
 
