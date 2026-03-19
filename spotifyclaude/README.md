@@ -109,7 +109,11 @@ Once you've built your tools (with a little help from Claude), you're ready to p
 
 ![Config file in Finder](screenshots/3-finder.png)
 
-**Edit the config.** Open the file and add the block below, replacing `your_client_id`, `your_client_secret`, and the `--directory` path with your own values:
+**Get your project path.** Before editing the config, grab the path to your `spotifyclaude` folder. In PyCharm, right-click it and select **Copy Path/Reference...**:
+
+![Copy path in PyCharm](screenshots/5-copy-path.png)
+
+**Edit the config.** Open `claude_desktop_config.json` and add the block below, pasting your copied path into `--directory` and filling in your Spotify credentials:
 
 ![Config file open in editor](screenshots/4-config.png)
 
@@ -134,11 +138,7 @@ Once you've built your tools (with a little help from Claude), you're ready to p
 }
 ```
 
-**Get the correct path** by right-clicking the `spotifyclaude` folder in PyCharm and selecting **Copy Path/Reference...**:
-
-![Copy path in PyCharm](screenshots/5-copy-path.png)
-
-**Verify the server starts** by running it manually in your terminal first:
+**Verify the server starts** by running it manually in your terminal before restarting Claude Desktop:
 
 ```bash
 cd /path/to/your/spotifyclaude
