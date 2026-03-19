@@ -77,7 +77,7 @@ Stuck or want to see how we did it? The full implementation is below.
 
 ## Full Setup Guide
 
-### 1. Clone the repo
+### 1. Clone the repo (if struggling)
 
 ```bash
 git clone https://github.com/CianMcCarthyUCC/Spotify-Model-Context-Protocol-Tutorial-Claude-Builders-Club-UCC.git
