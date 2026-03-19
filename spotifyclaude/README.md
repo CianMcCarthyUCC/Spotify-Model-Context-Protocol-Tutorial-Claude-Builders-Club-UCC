@@ -117,6 +117,18 @@ npx @modelcontextprotocol/inspector uv --directory /path/to/spotifyclaude run sp
 
 ---
 
+## Guardrails
+
+Things we ran into building this that you will probably hit too.
+
+**Playlist creation returns 403.** Spotify's February 2026 API update broke the `POST /users/{user_id}/playlists` endpoint for apps in Development Mode. The fix is to use `POST /me/playlists` instead, which creates the playlist on behalf of the currently authenticated user. This is already handled in the server code.
+
+**Adding tracks returns 403 or 404.** The same update renamed the `POST /playlists/{id}/tracks` endpoint to `POST /playlists/{id}/items`. If you see errors when adding tracks, make sure you are hitting `/items` and not `/tracks`. This is already handled in the server code.
+
+**OAuth succeeds but write operations still fail.** Spotify's Development Mode requires you to explicitly add each user's email address under User Management in the Developer Dashboard. Even if someone can log in fine, playlist creation and track additions will fail with a 403 until their account is added there. You can add up to 25 users.
+
+---
+
 ## License
 
 MIT
