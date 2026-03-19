@@ -73,7 +73,7 @@ Before running the server, make sure you have the following:
 
 ---
 
-## Full Setup Guide
+## Full Setup Guide (Step by Step)
 
 ### 1. Clone the repo (if struggling)
 
@@ -85,9 +85,13 @@ cd Spotify-Model-Context-Protocol-Tutorial-Claude-Builders-Club-UCC/spotifyclaud
 ### 2. Create a Spotify app
 
 1. Go to the [Spotify Developer Dashboard](https://developer.spotify.com/dashboard) and create an app.
-2. Add `http://127.0.0.1:8000/callback` as a **Redirect URI** in your app settings.
-3. Copy your **Client ID** and **Client Secret**.
-4. Add your Spotify account email under **User Management** (required while the app is in Development Mode).
+2. When asked which API/SDK you plan to use, select **Web API**:
+
+![Spotify Web API selection](screenshots/10-spotify-api.png)
+
+3. Add `http://127.0.0.1:8000/callback` as a **Redirect URI** in your app settings.
+4. Copy your **Client ID** and **Client Secret**.
+5. Add your Spotify account email under **User Management** (required while the app is in Development Mode).
 
 ### 3. Connect to Claude Desktop
 
