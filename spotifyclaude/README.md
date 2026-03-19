@@ -91,16 +91,7 @@ cd Spotify-Model-Context-Protocol-Tutorial-Claude-Builders-Club-UCC/spotifyclaud
 3. Copy your **Client ID** and **Client Secret**.
 4. Add your Spotify account email under **User Management** (required while the app is in Development Mode).
 
-### 3. Set your credentials
-
-Export your credentials as environment variables, or add them to your shell profile:
-
-```bash
-export SPOTIFY_CLIENT_ID="your_client_id"
-export SPOTIFY_CLIENT_SECRET="your_client_secret"
-```
-
-### 4. Connect to Claude Desktop
+### 3. Connect to Claude Desktop
 
 Open your Claude Desktop config:
 
@@ -132,7 +123,7 @@ Add the following, replacing the path with the location you cloned the repo:
 
 Restart Claude Desktop.
 
-### 5. Authorize
+### 4. Authorize
 
 In Claude, ask it to run the `authorize` tool. A browser window will open — log in with your Spotify account. Once you see "Success!", you're connected.
 
