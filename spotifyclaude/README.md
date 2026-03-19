@@ -155,6 +155,10 @@ uv run spotifyclaude
 
 In Claude, ask it to run the `authorize` tool. A browser window will open — log in with your Spotify account. Once you see "Success!", you're connected.
 
+Now in the chat you should see your Local MCP Server available under **Connectors**. You can communicate with it through plain English, leveraging the Model Context Protocol and tool use:
+
+![spotifyclaude connector visible in chat](screenshots/8-connector.png)
+
 ---
 
 ## Usage
