@@ -138,7 +138,9 @@ To get the correct path, right-click the `spotifyclaude` folder in PyCharm and s
 
 ![Copy path in PyCharm](screenshots/5-copy-path.png)
 
-Restart Claude Desktop.
+Restart Claude Desktop. If everything is configured correctly, you should see `spotifyclaude` with a **running** badge under Settings → Developer → Local MCP servers:
+
+![Server running in Claude Desktop](screenshots/7-running.png)
 
 Before authorizing, you can verify the server runs correctly by opening your terminal, navigating to your `spotifyclaude` folder, and running:
 
