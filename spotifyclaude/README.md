@@ -75,7 +75,7 @@ Before running the server, make sure you have the following:
 
 ## Full Setup Guide (Step by Step)
 
-### 1. Clone the repo (if struggling)
+### 1. Clone the repo in terminal (If you are struggling to build the code for the tools)
 
 ```bash
 git clone https://github.com/CianMcCarthyUCC/Spotify-Model-Context-Protocol-Tutorial-Claude-Builders-Club-UCC.git
